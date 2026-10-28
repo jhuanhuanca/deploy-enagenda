@@ -82,6 +82,8 @@ sudo ln -s /etc/nginx/sites-available/eagapi.techrep.app.conf /etc/nginx/sites-e
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
+En `eagapi.techrep.app.conf` las fotos y los videos viven en `public/media` y no hace falta `php artisan storage:link`. El bloque es `location ^~ /media/ { try_files $uri =404; }` y `client_max_body_size 52m;` para que un video de hasta 50 MB no lo corte Nginx. Después de copiar ese archivo, `sudo nginx -t && sudo systemctl reload nginx`.
+
 Certificados: `certbot certonly --webroot -w /var/www/certbot -d enagenda.techrep.app -d adgenda.techrep.app -d eagapi.techrep.app`.
 
 `/horizon` solo responde desde `127.0.0.1`. Desde fuera se mira con un túnel SSH. El panel del staff es `https://adgenda.techrep.app`.
