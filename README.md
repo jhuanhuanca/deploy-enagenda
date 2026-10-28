@@ -32,7 +32,7 @@ php artisan config:cache
 php artisan route:cache
 ```
 
-Completa `APP_KEY`, la clave de Postgres y `REDIS_PASSWORD` en el servidor. No las dejes en el repositorio. La cuenta del panel se crea con `php artisan staff:create`: pide nombre, correo y contraseña en la terminal y no las guarda en el `.env`.
+Completa `APP_KEY`, la clave de MySQL y `REDIS_PASSWORD` en el servidor. No las dejes en el repositorio. La base `politica` tiene que existir en MySQL con `utf8mb4`. La cuenta del panel se crea con `php artisan staff:create`: pide nombre, correo y contraseña en la terminal y no las guarda en el `.env`.
 
 `TRUSTED_PROXIES=127.0.0.1` porque Nginx termina TLS en esta máquina. Si Cloudflare llega directo a PHP, cámbialo a `cloudflare`.
 
